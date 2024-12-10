@@ -1,0 +1,13 @@
+def findMinArrowShots(balloons):
+    if not balloons:
+        return 0
+    balloons.sort(key=lambda x: x[1])
+    arrows = 1
+    end = balloons[0][1]
+    for balloon in balloons[1:]:
+        if balloon[0] > end:
+            arrows += 1
+            end = balloon[1]  
+    return arrows
+balloons = [[10,16], [2,8], [1,6], [7,12]]
+print(findMinArrowShots(balloons))  
